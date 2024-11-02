@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Welcome to company home page</h2>
+<div sec:authorize="hasRole('MANAGER')">
+<p>
+ <a th:href="@{/leaders}">Leadership Meeting(only for manager peeps)</a>
+</p>
+</div>
+<br><br>
+<div sec:authorize="hasRole('ADMIN')">
+<p>
+    <a th:href="@{/systems}">IT Systems Meeting(only for admin peeps)</a>-->
+</p>
+</div>
+<hr>
+<form method="POST" th:action="@{/logout}" action="#" >
+    <input type="submit" value="Logout">
+</form>
+
+</body>
+</html>

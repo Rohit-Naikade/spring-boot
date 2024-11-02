@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Show Form</title>
+
+</head>
+<body>
+Welcome to the world of Spring Boot!
+
+<br/><br/>
+
+Student Name : <span th:text="${student.firstName} + ' ' + ${student.lastName}"/>
+
+<br/><br/>
+
+Country : <span th:text="${student.country}"/>
+
+<br/><br/>
+
+Favourite Programming Language : <span th:text="${student.programmingLanguage}"/>
+<br/><br/>
+Favourite operating systems :
+<ul>
+ <li th:each="tempSystem : ${student.operatingSystems}" th:text="${tempSystem}"></li>
+</ul>
+
+</body>
+</html>

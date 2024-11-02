@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Show Form</title>
+
+</head>
+<body>
+<form th:action="@{/processstudent}" th:object="${student}" method="POST">
+    <input type="text" placeholder="what's the firstname?" th:field="*{firstName}" />
+    <br><br>
+    <input type="text" placeholder="what's the lastname?" th:field="*{lastName}" />
+    <br><br>
+
+    Select Country:
+    <select th:field="*{country}" >
+        <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}">India</option>
+    </select>
+    <br><br>
+    Select favourite programming language:
+    <input type="radio" th:field="*{programmingLanguage}"
+           th:each="tempLang : ${languages}" th:text="${tempLang}" th:value="${tempLang}"/>
+
+    <br><br>
+
+    Select your favourite operating system:
+    <input type="checkbox" th:field="*{operatingSystems}"
+           th:each="tempSystem : ${operatingSystems}" th:text="${tempSystem}" th:value="${tempSystem}"/>
+
+    <br><br>
+    <input type="submit"/>
+
+</form>
+</body>
+</html>
